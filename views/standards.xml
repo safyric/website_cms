@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Standards View -->
+        <record id="view_standards_list" model="ir.ui.view">
+            <field name="name">cms.standards.list</field>
+            <field name="model">cms.standards</field>
+            <field name="arch" type="xml">
+                <tree string="Standards">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="url"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stock_standards_form" model="ir.ui.view">
+            <field name="name">cms.standards.form</field>
+            <field name="model">cms.standards</field>
+            <field name="arch" type="xml">
+                <form string="Standards">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="url" widget="url"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cms_standards_tree" model="ir.actions.act_window">
+        <field name="name">Standards</field>
+        <field name="res_model">cms.standards</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_website_cms" name="CMS" sequence="8" parent="website.menu_website_configuration"/>>
+    <menuitem action="action_cms_standards_tree" id="menu_action_standards" parent="menu_website_cms" sequence="10"/>
+    </data>
+</odoo>
