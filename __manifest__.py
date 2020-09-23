@@ -11,11 +11,7 @@
         'website'
     ],
     'data': [
-        'views/category.xml',
         'views/standards.xml',
-        'views/product_data.xml',
-        'views/product_feature.xml',
-        'templats/website.xml'
     ],
     'installable': True,
 }
