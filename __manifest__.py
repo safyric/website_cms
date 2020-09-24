@@ -11,7 +11,7 @@
         'website'
     ],
     'data': [
-        'views/standards.xml',
+        'views/website_views.xml',
     ],
     'installable': True,
 }
