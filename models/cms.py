@@ -25,14 +25,13 @@ class cms_standard(models.Model):
     description = fields.Char(string="Descriptin", translate=True)
     url = fields.Char(string='URL')
     cms_id = fields.Many2one('cms.cms', 'CMS ID')
-    standard_category_ids = fields.One2many('cms.standard.category', 'standard_id', string='Category')
+    standard_category_id = fields.Many2one('cms.standard.category', 'Category')
 
 class cms_standard_category(models.Model):
     _name = 'cms.standard.category'
     _description = 'Standard Categories'
     
     name = fiels.Char(string="Name", required=True, translate=True)
-    standard_id = fields.Many2one('cms.standard', 'Standard ID')
 
 class cms_cms(models.Model):
     _name = 'cms.cms'
