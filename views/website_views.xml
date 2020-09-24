@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- CMS View -->
+        <record id="view_cms_list" model="ir.ui.view">
+            <field name="name">cms.cms.list</field>
+            <field name="model">cms.cms</field>
+            <field name="arch" type="xml">
+                <tree string="CMS">
+                    <field name="name"/>
+                    <field name="category_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_cms_form" model="ir.ui.view">
+            <field name="name">cms.cms.form</field>
+            <field name="model">cms.cms</field>
+            <field name="arch" type="xml">
+                <form string="CMS">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="category_id"/>
+                            <field name="url" widget="url"/>
+                        </group>
+                        <notebook>
+                            <page string="Standards">
+                                <field name="standard_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                        <field name="url" widget="url"/>
+                                        <field name="category_id"/>
+                                        <field name="id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
         <!-- Standards View -->
-        <record id="view_standards_list" model="ir.ui.view">
-            <field name="name">cms.standards.list</field>
-            <field name="model">cms.standards</field>
+        <record id="view_standard_list" model="ir.ui.view">
+            <field name="name">cms.standard.list</field>
+            <field name="model">cms.standard</field>
             <field name="arch" type="xml">
                 <tree string="Standards">
                     <field name="name"/>
@@ -14,9 +55,9 @@
             </field>
         </record>
 
-        <record id="stock_standards_form" model="ir.ui.view">
-            <field name="name">cms.standards.form</field>
-            <field name="model">cms.standards</field>
+        <record id="standard_standard_form" model="ir.ui.view">
+            <field name="name">cms.standard.form</field>
+            <field name="model">cms.standard</field>
             <field name="arch" type="xml">
                 <form string="Standards">
                     <sheet>
@@ -30,15 +71,26 @@
             </field>
         </record>
 
-        <record id="action_cms_standards_tree" model="ir.actions.act_window">
+        <!-- Actions -->
+        <record id="action_cms_cms_tree" model="ir.actions.act_window">
+            <field name="name">CMS</field>
+            <field name="res_model">cms.cms</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="action_cms_standard_tree" model="ir.actions.act_window">
             <field name="name">Standards</field>
-            <field name="res_model">cms.standards</field>
+            <field name="res_model">cms.standard</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_website_cms" name="CMS" sequence="8" parent="website.menu_website_configuration"/>>
-        <menuitem action="action_cms_standards_tree" id="menu_action_standards" parent="menu_website_cms" sequence="10"/>
+        <!-- Menu items -->
+        <menuitem id="menu_website_cms" name="CMS" sequence="8" parent="website.menu_website_configuration"/>
+        <menuitem action="action_cms_cms_tree" id="menu_action_cms" parent="menu_website_cms" sequence="5"/>
+        <menuitem action="action_cms_standards_tree" id="menu_action_standard" parent="menu_website_cms" sequence="10"/>
     </data>
 </odoo>
