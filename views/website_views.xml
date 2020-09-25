@@ -31,7 +31,7 @@
                                         <field name="name"/>
                                         <field name="description"/>
                                         <field name="url" widget="url"/>
-                                        <field name="category_id"/>
+                                        <field name="standard_category_id"/>
                                         <field name="id" invisible="1"/>
                                     </tree>
                                 </field>
