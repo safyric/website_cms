@@ -31,7 +31,7 @@ class cms_standard_category(models.Model):
     _name = 'cms.standard.category'
     _description = 'Standard Categories'
     
-    name = fiels.Char(string="Name", required=True, translate=True)
+    name = fields.Char(string="Name", required=True, translate=True)
 
 class cms_cms(models.Model):
     _name = 'cms.cms'
