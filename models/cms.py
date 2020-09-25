@@ -37,7 +37,7 @@ class cms_cms(models.Model):
     _name = 'cms.cms'
     _descriptoin = 'CMS'
     
-    name = fields.Char(string="Name" required=True)
+    name = fields.Char(string="Name", required=True)
     category_id = fields.Many2one('cms.category', string='Category')
     brief_ids = fields.One2many('cms.brief', 'cms_id', string='Breif Lines')
     standard_ids = fields.One2many('cms.standard', 'cms_id', string='Standards')
